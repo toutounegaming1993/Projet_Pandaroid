@@ -1,0 +1,29 @@
+if((isset($_POST['mdp']) AND $_POST['mdp'] ==  "kangourou")AND(isset($_POST['identifiant']) AND $_POST['identifiant'] ==  "kangourou")){
+				
+				header("Location: page_principale.php" ); 
+			/* Redirige le client vers le site PHP */ 
+			  exit();
+			}
+			else // Sinon, on affiche un message d'erreur
+    {
+        echo '
+			<div id = "Conteneur">
+			<div class="Panda_logo" id="logo">
+				<img src="Image/Panda.png"  alt= "Logo Pandaroid"/>
+			</div>
+			<div id ="Tableauform">
+					
+				<form id = "form" action="secret.php" method="post">
+							
+					<input type="text" name="identifiant"  placeholder="Identifiant"><br><br>
+					<input type="password" name="mdp" placeholder="Mot de passe"><br><br>
+					<input type="submit" value="Valider"  >
+					
+				</form>
+			</div>
+
+			<p>Erreur: Mot de passe ou identifiant inconnu</p>
+		</div>';
+			
+    }
+	?>
