@@ -19,17 +19,19 @@
 			</div>
 			<div id ="Tableauform">
 					<!-- Bloc du formuliare nécessaire pour l'identification -->
-				<form id = "form" action="secret.php" method="post">
+				<form id = "form" action="Connection.php" method="post">
 							
-					<input type="text" name="identifiant"  placeholder="Identifiant"><br><br>
+					<input type="text" name="email"  placeholder="Identifiant"><br><br>
 					<input type="password" name="mdp" placeholder="Mot de passe"><br><br>
-					<input type="submit" value="Valider"  >
+					<input type="submit" name= "valider" value="Valider"  >
 					
 				</form>
-			<input type="button" onclick="self.location.href='inscription.php'" value="inscription" >	
+			<input type="button" onclick="self.location.href='ajout_membre.php'" value="inscription" >	
 			</div>
 
-				
+			<p><?php
+			if (isset($erreur)) echo '<br />',$erreur;
+		?></p>	
 		</div>		
 	</body>
 	
