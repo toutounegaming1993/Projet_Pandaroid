@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<?php
+
+session_start();
+function diapo($bdd){
+	
+				$sql = "SELECT * FROM photos";
+				$resultat = $bdd->query($sql);
+				while($diap=$resultat->fetch())
+				{
+					
+					echo '<a href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'" ><img class="image_diapo" src="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"></a>';
+				}
+				
+}
+
+
+$db_login 	= "root";
+$db_pass	= "root";
+$dbname 	= "pandaroid";
+$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db_pass);
+?>
+
 <html>
 	<head>
 	<!-- en tête -->
@@ -31,7 +52,7 @@
 							<li><a href="#">Accueil</a></li>
 							<li><a href="#">Mon Profil</a></li>
 							<li><a href="upload_photo.php">Partager une photo</a></li>
-							<li><a href="diapo.php">Mes Albums</a></li>
+							<li><a href="#">Mes Albums</a></li>
 							<li><a href="#">Paramètres</a></li>
 						</ul></td>
 						</tr>
@@ -39,31 +60,11 @@
 				</div>		
 			</div>	
 			<div id = "Contenu">
-				<div "titre_image">
-					<h4>Tire Image</h4>
-				</div>	
-				<div id ="date">
-					<p>Date image</p>
-				</div>
-				<div id="image">
-					<img src="Image/Paris.jpg"  alt= "Image_post"/>
-				</div>
-				<div id= "contenu_footer">
-				<div id ="boutons_vote">
-					<table>
-						<tr>
-						<td><img src ="Image/upvote.png" alt= "Upvote"/></td>
-						<td><img src ="Image/downvote.png" alt= "Downvote"/></td>
-					</table>
-				</div>
-				<div id="social">
-					<table>
-						<td><img src="Image/facebook.png"  alt= "Facebook"/></td>
-						<td><img src="Image/twitter.png"  alt= "Twitter"/></td>
-					</table>
-				</div>
-				</div>
-		</div>
+				 
+				 <?php
+					diapo($bdd);
+				?>
+			</div>
 			
 	
 		

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 28 Avril 2016 à 16:06
+-- Généré le :  Jeu 28 Avril 2016 à 18:14
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -89,7 +89,8 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `Nom`, `Lieu`, `Proprietaire`, `Date`) VALUES
-(1, '160428060336.PNG', 'Paris', 1, '2016-04-28');
+(1, '160428060336.PNG', 'Paris', 1, '2016-04-28'),
+(2, '160428072940.PNG', 'Paris', 1, '2016-04-28');
 
 --
 -- Index pour les tables exportées
@@ -142,7 +143,7 @@ ALTER TABLE `membre`
 -- AUTO_INCREMENT pour la table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -23,6 +23,14 @@
 		
 }
 
+.image_diapo{
+	display: inline;
+	margin:10px;
+	padding: 10px;
+	width:300px;
+	height:auto;
+
+}
 #Menu li{
 	float: left;
 	height:50px;
