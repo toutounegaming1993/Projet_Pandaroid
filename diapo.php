@@ -8,7 +8,7 @@ function diapo($bdd){
 				while($diap=$resultat->fetch())
 				{
 					
-					echo '<a href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'" ><img class="image_diapo" src="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"></a>';
+					echo '<a class="image_lien" data-lightbox="diapo" href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"><img class="image_diapo" src="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"></a>';
 				}
 				
 }
@@ -27,6 +27,8 @@ $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db
 		
 		<link rel="stylesheet" href="Global.css" />
 		<link rel="stylesheet" href="Principale.css" />
+		<link rel="stylesheet" href="lightbox2-master/dist/css/lightbox.min.css">
+		  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 		<meta charset="utf-8" />
 		<title>Pandaroid</title>
 
@@ -49,10 +51,10 @@ $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db
 						<td><ul>
 							<li><a href="#" ><b>Populaire</b></li>
 							<li><a href="#"><b>Nouveau</b></li>
-							<li><a href="#">Accueil</a></li>
+							<li><a href="Page_principale.php">Accueil</a></li>
 							<li><a href="#">Mon Profil</a></li>
 							<li><a href="upload_photo.php">Partager une photo</a></li>
-							<li><a href="#">Mes Albums</a></li>
+							<li><a href="diapo.php">Mes Albums</a></li>
 							<li><a href="#">Paramètres</a></li>
 						</ul></td>
 						</tr>
@@ -69,7 +71,7 @@ $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db
 	
 		
 		
-		
+	<script src="lightbox2-master/dist/js/lightbox-plus-jquery.min.js"></script>	
 	</body>
 	
 	

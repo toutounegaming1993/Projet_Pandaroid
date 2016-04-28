@@ -56,7 +56,7 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 		<link rel="stylesheet" href="Global.css" />
 		<link rel="stylesheet" href="Principale.css" />
 		<meta charset="utf-8" />
-		 <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+		<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 		<title>Pandaroid</title>
 		<script type="text/javascript">
 			   function readURL(input) {
@@ -91,8 +91,8 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 							<li><a href="#"><b>Nouveau</b></li>
 							<li><a href="Page_principale.php">Accueil</a></li>
 							<li><a href="#">Mon Profil</a></li>
-							<li><a href="#">Partager une photo</a></li>
-							<li><a href="#">Mes Albums</a></li>
+							<li><a href="upload_photo.php">Partager une photo</a></li>
+							<li><a href="diapo.php">Mes Albums</a></li>
 							<li><a href="#">Paramètres</a></li>
 						</ul></td>
 						</tr>
@@ -138,6 +138,7 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 			</div>
 				
 		</div>
+	
 	</body>
 </html>
 

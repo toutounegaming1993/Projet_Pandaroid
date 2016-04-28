@@ -28,7 +28,7 @@
 						<td><ul>
 							<li><a href="#" ><b>Populaire</b></li>
 							<li><a href="#"><b>Nouveau</b></li>
-							<li><a href="#">Accueil</a></li>
+							<li><a href="Page_principale.php">Accueil</a></li>
 							<li><a href="#">Mon Profil</a></li>
 							<li><a href="upload_photo.php">Partager une photo</a></li>
 							<li><a href="diapo.php">Mes Albums</a></li>
