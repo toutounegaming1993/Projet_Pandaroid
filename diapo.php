@@ -4,6 +4,7 @@ session_start();
 function diapo($bdd){
 	
 				$sql = "SELECT * FROM photos";
+				$sql .= " WHERE Proprietaire LIKE ".$_SESSION['id']." ";
 				$resultat = $bdd->query($sql);
 				while($diap=$resultat->fetch())
 				{
@@ -28,7 +29,7 @@ $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db
 		<link rel="stylesheet" href="Global.css" />
 		<link rel="stylesheet" href="Principale.css" />
 		<link rel="stylesheet" href="lightbox2-master/dist/css/lightbox.min.css">
-		  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+		<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 		<meta charset="utf-8" />
 		<title>Pandaroid</title>
 
@@ -72,7 +73,5 @@ $bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db
 		
 		
 	<script src="lightbox2-master/dist/js/lightbox-plus-jquery.min.js"></script>	
-	</body>
-	
-	
+	</body>	
 </html>
