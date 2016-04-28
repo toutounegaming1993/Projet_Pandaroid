@@ -17,6 +17,9 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 	if ($_POST['mdp'] != $_POST['mdp2']) {
 		$erreur = 'Les deux mots de passe ne correspondent pas';
 	}
+	elseif(!preg_match("~^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$~i",$email)){
+		$erreur = 'Addresse e-mail invalide';
+	}
 	else {
 		
 		try
@@ -30,12 +33,24 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 						{
 							$verif=1;
 						}
+					else{
+						$id=$mail["id"];
+					}
 				}
 				if($verif==0)
 				{
+					session_start();
+					$_SESSION['email']=$email;
 					$sql = "INSERT INTO membre (nom, prenom, email, mdp) VALUES(";
-							$sql .= "'$nom','$prenom','$email','$mdp')";
-							$bdd->query($sql);
+					$sql .= "'$nom','$prenom','$email','$mdp')";
+					$bdd->query($sql);
+					$_SESSION['id']=$bdd->lastInsertId();
+					$id=$_SESSION['id'];
+					$_SESSION['url']="Images/$id/";
+					mkdir($_SESSION['url'], 0777, true);
+					header("Location: page_principale.php" ); 
+					/* Redirige le client vers le site PHP */ 
+					exit();
 				}
 				else
 				{

@@ -21,7 +21,7 @@
 					<!-- Bloc du formuliare nécessaire pour l'identification -->
 				<form id = "form" action="Connection.php" method="post">
 							
-					<input type="text" name="email"  placeholder="Identifiant"><br><br>
+					<input type="text" name="email"  placeholder="Addresse e-mail"><br><br>
 					<input type="password" name="mdp" placeholder="Mot de passe"><br><br>
 					<input type="submit" name= "valider" value="Valider"  >
 					

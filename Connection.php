@@ -21,15 +21,17 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 					if (($mail["email"] == $email)AND($mail["mdp"] == $mdp))
 						{
 							$verif=1;
-						}
+							session_start();
+							$_SESSION['email']=$email;
+							$_SESSION['id']=$mail["id"];
+							$id=$_SESSION['id'];
+							$_SESSION['url']="Images/$id/";
+							header("Location: page_principale.php" ); 
+							/* Redirige le client vers le site PHP */ 
+							exit();
+						}	
 				}
 				if($verif==1)
-				{
-					header("Location: page_principale.php" ); 
-					/* Redirige le client vers le site PHP */ 
-					exit();
-				}
-				else
 				{
 					$erreur = 'e-mail ou mot de passe non correct';
 				}	

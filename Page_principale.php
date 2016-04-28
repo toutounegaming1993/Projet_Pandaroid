@@ -30,7 +30,7 @@
 							<li><a href="#"><b>Nouveau</b></li>
 							<li><a href="#">Accueil</a></li>
 							<li><a href="#">Mon Profil</a></li>
-							<li><a href="#">Partager une photo</a></li>
+							<li><a href="upload_photo.php">Partager une photo</a></li>
 							<li><a href="#">Mes Albums</a></li>
 							<li><a href="#">Paramètres</a></li>
 						</ul></td>
@@ -63,7 +63,9 @@
 					</table>
 				</div>
 				</div>
-		</div>	
+		</div>
+			
+	
 		
 		
 		
