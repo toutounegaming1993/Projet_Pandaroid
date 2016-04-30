@@ -7,11 +7,12 @@ $dbname 	= "pandaroid";
 $verif=0;		
 
 // on teste si le visiteur a soumis le formulaire
-if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
+if (isset($_POST['valider']) AND $_POST['valider'] == 'Se Connecter') {
 	// on teste l'existence de nos variables. On teste également si elles ne sont pas vides
 	if ((isset($_POST['email']) AND !empty($_POST['email'])) AND (isset($_POST['mdp']) AND !empty($_POST['mdp'])) ) {
 		try
 			{
+				
 				$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db_pass);
 				$sql = "SELECT * FROM membre";
 				$sql .= " WHERE email LIKE '%$email%' ";
@@ -26,13 +27,14 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 							$_SESSION['id']=$mail["id"];
 							$id=$_SESSION['id'];
 							$_SESSION['url']="Images/$id/";
-							header("Location: page_principale.php" ); 
+							header("Location: PandaRoid.php" ); 
 							/* Redirige le client vers le site PHP */ 
 							exit();
 						}	
 				}
-				if($verif==1)
+				if($verif==0)
 				{
+					
 					$erreur = 'e-mail ou mot de passe non correct';
 				}	
 			}
@@ -40,13 +42,11 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 				echo $e->getMessage();
 				return;	
 			}
-
-		
 	}
 	else {
 	$erreur = 'Au moins un des champs est vide.';
 	}
 
 }
-include_once('Accueil.php');
+include_once('PandaRoidAcc.php');
 ?>
