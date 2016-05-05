@@ -24,7 +24,7 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Se Connecter') {
 							$verif=1;
 							session_start();
 							$_SESSION['email']=$email;
-							$_SESSION['id']=$mail["id"];
+							$_SESSION['id']=$mail['id'];
 							$id=$_SESSION['id'];
 							$_SESSION['url']="Images/$id/";
 							header("Location: PandaRoid.php" ); 
