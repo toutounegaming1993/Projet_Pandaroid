@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 function diapo($bdd){
 	
@@ -8,7 +7,6 @@ function diapo($bdd){
 				$resultat = $bdd->query($sql);
 				while($diap=$resultat->fetch())
 				{
-					
 					echo '<a class="image_lien" data-lightbox="diapo" href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"><img class="image_diapo" src="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"></a>';
 				}
 				

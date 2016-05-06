@@ -30,8 +30,9 @@
 							
 					<input type="text" name="email"  placeholder="Addresse e-mail"><br><br>
 					<input type="password" name="mdp" placeholder="Mot de passe"><br><br>
-					<input id="connexion" type="submit" name= "valider" value="Se Connecter"  >
+					<input class="b_accueil" type="submit" name= "valider" value="Se Connecter" >
 					
+					<label class = "erreur" ><?php if (isset($erreur)) echo '<br />',$erreur;?></label>
 				</form>
 				
 				<p>
@@ -40,18 +41,16 @@
 				
 				<form id = "form" method="post">
 				
-				<input id="inscription" type="button" onclick="self.location.href='ajout_membre.php'" value="S'inscrire"  >
+				<input class="b_accueil" type="button" onclick="self.location.href='ajout_membre.php'" value="S'inscrire"  >
 				</form>
-				<div id= "erreuré>
-				<?php
-					if (isset($erreur)) echo '<br />',$erreur;
-				?>
+				<div id= "erreur>
+				
 				</div>
 				
-		</div>
-		
-		
 			</div>
+		
+		
+	</div>
 		
 	</body>
 	

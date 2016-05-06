@@ -26,10 +26,14 @@
 	<div id="nav">
 		<ul>
 			<img src="Image/tetecadree.jpg" alt="tete"/>
-			<li id="links"><a href="#1">ACCUEIL</a></li>
-			<li id="links"><a href="#2">PROFIL</a></li>
+			<li id="links"><a href="pandaroid.php">ACCUEIL</a></li>
+			<li id="links"><a href="profil.php"><?php 
+			$prenom = strtoupper($_SESSION['prenom']);
+			echo $prenom; 
+			?></a></li>
 			<li id="links"><a href="upload_photo.php">PARTAGER UNE PHOTO</a></li>
 			<li id="links"><a href="diapo.php">ALBUMS</a></li>
+			<li id="links"><a href="amis.php">AMIS</a></li>
 			<li id="lastlink"><a href="#5">PARAMETRES</a></li>
 		
 		<div id="recherche_p">

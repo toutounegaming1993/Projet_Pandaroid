@@ -47,6 +47,7 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 					$_SESSION['id']=$bdd->lastInsertId();
 					$id=$_SESSION['id'];
 					$_SESSION['url']="Images/$id/";
+					$_SESSION['prenom']=$prenom;
 					mkdir($_SESSION['url'], 0777, true);
 					header("Location: page_principale.php" ); 
 					/* Redirige le client vers le site PHP */ 
