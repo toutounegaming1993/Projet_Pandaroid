@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 07 Mai 2016 à 10:33
+-- Généré le :  Sam 07 Mai 2016 à 12:58
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -52,7 +52,8 @@ CREATE TABLE `amis` (
 --
 
 INSERT INTO `amis` (`id`, `membre1_id`, `membre2_id`) VALUES
-(2, 1, 2);
+(2, 1, 2),
+(3, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,8 @@ CREATE TABLE `membre` (
 INSERT INTO `membre` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
 (1, 'Duhesme', 'Antoine', 'duhesme.antoine@gmail.com', '29121993'),
 (2, 'Duhesme', 'Laure', 'laure.duhesme@gmail.com', '080887'),
-(3, 'Toutoune', 'LeVrai', 'levraitoutoune@gmail.com', '29121993');
+(3, 'Toutoune', 'LeVrai', 'levraitoutoune@gmail.com', '29121993'),
+(4, 'lolol', 'lol', 'olololool@gmail.com', '2912');
 
 -- --------------------------------------------------------
 
@@ -111,8 +113,7 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `Nom`, `Titre`, `Lieu`, `Proprietaire`, `Date`) VALUES
-(1, '160507122724.jpg', 'Borderlands', 'Sanctuary', 2, '2016-05-07 12:27:24'),
-(2, '160507122803.jpg', 'Vision', 'Paris', 2, '2016-05-07 12:28:03');
+(1, '160507025600.jpg', 'Vision', 'Paris', 4, '2016-05-07 02:56:00');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,7 @@ ALTER TABLE `album`
 -- AUTO_INCREMENT pour la table `amis`
 --
 ALTER TABLE `amis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `groupe`
 --
@@ -189,17 +190,17 @@ ALTER TABLE `groupe`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `req_amis`
 --
 ALTER TABLE `req_amis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

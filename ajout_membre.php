@@ -49,6 +49,7 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 					$_SESSION['url']="Images/$id/";
 					$_SESSION['prenom']=$prenom;
 					mkdir($_SESSION['url'], 0777, true);
+					mkdir("min/$id/", 0777, true);
 					header("Location: PandaRoid.php" ); 
 					/* Redirige le client vers le site PHP */ 
 					exit();
