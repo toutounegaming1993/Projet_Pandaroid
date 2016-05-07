@@ -10,7 +10,9 @@
 		<meta name="viewport" content="width=device-width" />
         <meta charset="utf-8" />
 		<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+		
 		<?php include_once('diapo.php');?>
+			
         <title>PandaRoid</title>
     </head>
 
@@ -56,7 +58,8 @@
 			
 			</div>
 		</div>
-		<script src="lightbox2-master/dist/js/lightbox-plus-jquery.min.js"></script>	
+		<script src="lightbox2-master/dist/js/lightbox-plus-jquery.min.js"></script>
+	
 	</body>
 	
 	

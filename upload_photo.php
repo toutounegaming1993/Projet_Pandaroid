@@ -34,8 +34,8 @@ if (isset($_POST['valider']) AND $_POST['valider'] == 'Valider') {
 					{
 						move_uploaded_file($image_tmp, "$dossier/$nouveau_nom");
 						$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db_pass);
-						$sql = "INSERT INTO photos (Nom, Lieu, Proprietaire, Date) VALUES(";
-						$sql .= "'$nouveau_nom','$lieu', ".$_SESSION['id'].",'$date')";
+						$sql = "INSERT INTO photos (Nom, Titre, Lieu, Proprietaire, Date) VALUES(";
+						$sql .= "'$nouveau_nom','$titre','$lieu', ".$_SESSION['id'].",'$date')";
 						$bdd->query($sql);
 					}
 			}		

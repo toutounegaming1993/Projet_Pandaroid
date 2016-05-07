@@ -16,10 +16,14 @@ function diapo($bdd){
 
 		while($diap=$resultat->fetch())
 	{
-		if($diap['Proprietaire']==$mon_id)
-			echo '<a class="image_lien" data-lightbox="diapo" href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"><img class="image_diapo" src="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"></a>';
+		if($diap['Proprietaire']==$mon_id){
+			
+
+			echo '<a class="image_lien" data-lightbox="diapo" data-title="'.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'" date="lolol" href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"><img class="image_diapo" src="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"></a>';
+		}
+			
 		else{
-			echo '<a class="image_lien" data-lightbox="diapo" href="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"><img class="image_diapo" src="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"></a>';
+			echo '<a class="image_lien" data-lightbox="diapo"  data-title="'.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'" href="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"><img class="image_diapo" src="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"></a>';
 		}
 	}
 				
