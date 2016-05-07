@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 06 Mai 2016 à 16:42
+-- Généré le :  Sam 07 Mai 2016 à 00:05
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -88,7 +88,8 @@ CREATE TABLE `membre` (
 
 INSERT INTO `membre` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
 (1, 'Duhesme', 'Antoine', 'duhesme.antoine@gmail.com', '29121993'),
-(2, 'Duhesme', 'Laure', 'laure.duhesme@gmail.com', '080887');
+(2, 'Duhesme', 'Laure', 'laure.duhesme@gmail.com', '080887'),
+(3, 'Toutoune', 'LeVrai', 'levraitoutoune@gmail.com', '29121993');
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,9 @@ INSERT INTO `photos` (`id`, `Nom`, `Lieu`, `Proprietaire`, `Date`) VALUES
 (27, '160430041842.jpg', 'qdqd', 1, '2016-04-30'),
 (28, '160430041852.jpg', 'qdqd', 1, '2016-04-30'),
 (29, '160430041858.jpg', 'qs', 1, '2016-04-30'),
-(30, '160503070531.PNG', 'qd', 1, '2016-05-03');
+(30, '160503070531.PNG', 'qd', 1, '2016-05-03'),
+(31, '160506092113.jpg', 'Paris', 1, '2016-05-06'),
+(32, '160506093916.PNG', 'qsd', 3, '2016-05-06');
 
 -- --------------------------------------------------------
 
@@ -215,17 +218,17 @@ ALTER TABLE `groupe`
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT pour la table `req_amis`
 --
 ALTER TABLE `req_amis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

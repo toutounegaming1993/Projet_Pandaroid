@@ -25,7 +25,8 @@
 			<li id="links"><a href="upload_photo.php">PARTAGER UNE PHOTO</a></li>
 			<li id="links"><a href="diapo.php">ALBUMS</a></li>
 			<li id="links"><a href="amis.php">AMIS</a></li>
-			<li id="lastlink"><a href="#5">PARAMETRES</a></li>
+			<li id="links"><a href="#5">PARAMETRES</a></li>
+			<li id="lastlink"><a href="log_out.php">DECONNEXION</a></li>
 		
 		<div id="recherche_p">
 			<form action="/search" id="searchthis" method="get">
@@ -49,9 +50,7 @@
 			<div id = "Contenu">
 				
 				 
-				 <?php
-					diapo($bdd);
-				?>
+				 
 			</div>	
 	<script src="lightbox2-master/dist/js/lightbox-plus-jquery.min.js"></script>	
 	</body>	
