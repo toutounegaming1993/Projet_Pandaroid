@@ -1,9 +1,5 @@
 <?php
-session_start();
-$db_login 	= "root";
-$db_pass	= "root";
-$dbname 	= "pandaroid";	
-$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db_pass);
+include_once('fonctions.php');
 if(isset($_GET['membre']) AND !empty($_GET['membre']))
 	$membre=$_GET['membre'];
 else{

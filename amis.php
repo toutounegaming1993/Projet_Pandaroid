@@ -1,84 +1,4 @@
-<?php
-session_start();
-$db_login 	= "root";
-	$db_pass	= "root";
-	$dbname 	= "pandaroid";	
-	$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db_pass);
-	
-function non_amis($bdd){
-	
-	$sql = "SELECT * FROM membre ";
-	$sql .= " WHERE id NOT LIKE ".$_SESSION['id']." ";
-	$resultat = $bdd->query($sql);
-	while($non_amis=$resultat->fetch())
-	{
-		$membre_id=$non_amis['id'];
-		$nom=$non_amis['nom'];
-		$prenom=$non_amis['prenom'];
-		echo "<a href='profil.php?membre=$membre_id'>$prenom $nom</a>";
-	}
-				
-}
-
-function amis($bdd){
-	$mon_id=$_SESSION['id'];
-	$sql = "SELECT * FROM amis ";
-	$sql .="WHERE (membre1_id ='$mon_id') OR (membre2_id ='$mon_id')";
-	$resultat = $bdd->query($sql);
-	while($amis=$resultat->fetch())
-	{	
-		$membre1_id=$amis['membre1_id'];
-		$membre2_id=$amis['membre2_id'];
-		if($membre1_id == $mon_id){
-			$membre=$membre2_id;
-		}
-		else{
-			$membre=$membre1_id;
-		}
-		$nom_req = "SELECT * FROM membre ";
-		$nom_req .="WHERE id LIKE '$membre' ";
-		$resu = $bdd->query($nom_req);
-		while($nom=$resu->fetch())
-		{
-			$n=$nom['nom'];
-			$pre=$nom['prenom'];
-			
-		}
-		echo "<a href='profil.php?membre=$membre'>$pre $n</a>";
-	}
-}
-
-function req_amis($bdd){
-	$mon_id=$_SESSION['id'];
-	$sql = "SELECT * FROM req_amis ";
-	$sql .="WHERE recepteur ='$mon_id' ";
-	$resultat = $bdd->query($sql);
-	while($req_amis=$resultat->fetch())
-		{	
-			$membre=$req_amis['demandeur'];
-			
-			$nom_req = "SELECT * FROM membre ";
-			$nom_req .="WHERE id LIKE '$membre' ";
-			$resu = $bdd->query($nom_req);
-			while($nom=$resu->fetch())
-			{
-				$no=$nom['nom'];
-				$pren=$nom['prenom'];
-				
-			}
-			echo "<a href='profil.php?membre=$membre'>$pren $no</a>";
-	}
-}
-
-
-	
-	$db_login 	= "root";
-	$db_pass	= "root";
-	$dbname 	= "pandaroid";	
-	$bdd = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$db_login, $db_pass);
-			
-?>
-
+<!DOCTYPE html>
 <html>
 
     <head>
@@ -87,7 +7,7 @@ function req_amis($bdd){
 		<!-- ADAPTER LA TAILLE A TOUS LES ECRANS !-->
 		<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 		<script type="text/javascript">
-
+		<?php include_once('fonctions.php');?>
 </script>
 		<meta name="viewport" content="width=device-width" />
         <meta charset="utf-8" />
