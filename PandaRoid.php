@@ -50,12 +50,15 @@
     <body>
 		<div id="fond">
 			<div id="contenu">
+				<table>
+				<tr>
 				
 				<?php
 				
 					diapo($bdd);
 				?>
-			
+				</tr>
+				</table>
 			</div>
 		</div>
 		

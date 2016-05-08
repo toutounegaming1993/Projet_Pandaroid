@@ -40,9 +40,18 @@ function amis($bdd){
 			
 		}
 		echo "<a href='profil.php?membre=$membre'>$pre $n</a>";
-		$nom="$pre $n";
-		return $nom;
 	}
+}
+function retourner_nom_amis($bdd,$amis){
+	$sql = "SELECT * FROM membre ";
+	$sql .="WHERE id LIKE '$amis' ";
+	$resultat = $bdd->query($sql);
+	while($amis=$resultat->fetch())
+	{	
+			$n=$amis['nom'];
+			$pre=$amis['prenom'];
+	}
+	return "$pre $n";
 }
 
 function req_amis($bdd){
@@ -80,18 +89,57 @@ function diapo($bdd){
 	$resultat = $bdd->query($sql);
 
 		while($diap=$resultat->fetch())
-			{
-				//$nom=
-				if($diap['Proprietaire']==$mon_id){
-
-					echo '<a class="image_lien" data-lightbox="diapo" data-title="'.$_SESSION['prenom'].''.$_SESSION['nom'].'|'.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'"  href="Images/'.$_SESSION['id'].'/'.$diap['Nom'].'"><img class="image_diapo" src="min/'.$_SESSION['id'].'/'.'mini'.'_'.''.$diap['Nom'].'"></a>';
-				}
-					
-				else{
-					echo '<a class="image_lien" data-lightbox="diapo"  data-title="'.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'" href="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"><img class="image_diapo" src="min/'.$diap['Proprietaire'].'/'.'mini'.'_'.''.$diap['Nom'].'"></a>';
-				}
+			{	
+				
+				$nom=retourner_nom_amis($bdd,$diap['Proprietaire']);
+				$nom=strtoupper($nom);
+					if($diap['publique']==1)
+						echo '<td><a class="image_lien" data-lightbox="diapo"  data-title="'.$nom.' | '.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'" href="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"><span class="nom_proprietaire">'.$nom.'</span><img class="image_diapo" src="min/'.$diap['Proprietaire'].'/'.'mini'.'_'.''.$diap['Nom'].'"></a></td>';
+				
 			}
 				
+}
+function mes_photos($bdd){
+	$mon_id=$_SESSION['id'];
+	$sql = "SELECT * FROM photos ";
+	$sql .= " WHERE Proprietaire LIKE ".$_SESSION['id']." ";
+	$sql .= " ORDER BY Date DESC ";
+	$resultat = $bdd->query($sql);
+	echo'<table>';
+	echo'<tr>';
+		while($diap=$resultat->fetch()){
+			$nom=retourner_nom_amis($bdd,$diap['Proprietaire']);
+			$photo_nom=$diap['Nom'];
+			echo '<td><a class="image_lien" data-lightbox="diapo"  data-title="'.$nom.' | '.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'" href="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"><span class="nom_proprietaire">'.$nom.'</span><img class="image_diapo" src="min/'.$diap['Proprietaire'].'/'.'mini'.'_'.''.$diap['Nom'].'"></a>';
+			echo'<form id = "form_image" method="post">';
+			if($diap['publique']==0)
+				echo"<a href='actions.php?action=publier&membre=$mon_id&photo_id=$photo_nom' class='b_social'>Publier</a>";
+			else
+				echo"<a href='actions.php?action=priver&membre=$mon_id&photo_id=$photo_nom' class='b_social'>Rendre Privé</a>";
+			echo"<a href='actions.php?action=supprimer&membre=$mon_id&photo_id=$photo_nom' class='b_social'>Supprimer</a>";
+			
+			echo'</form>'; 
+			echo '</td>';
+		}
+		echo'</tr>';
+		echo'</table>';
+}
+function photo_amis($bdd,$id_amis){
+	$sql = "SELECT * FROM photos ";
+	$sql .= " WHERE Proprietaire LIKE '$id_amis' ";
+	$sql .= " AND publique LIKE '1' ";
+	$sql .= " ORDER BY Date DESC ";
+	$resultat = $bdd->query($sql);
+	echo'<table>';
+	echo'<tr>';
+	while($diap=$resultat->fetch()){
+	$nom=retourner_nom_amis($bdd,$diap['Proprietaire']);
+	$photo_id=$diap['id'];
+	echo '<td><a class="image_lien" data-lightbox="diapo"  data-title="'.$nom.' | '.$diap['Titre'].' | '.$diap['Lieu'].' | '.$diap['Date'].'" href="Images/'.$diap['Proprietaire'].'/'.$diap['Nom'].'"><span class="nom_proprietaire">'.$nom.'</span><img class="image_diapo" src="min/'.$diap['Proprietaire'].'/'.'mini'.'_'.''.$diap['Nom'].'"></a></td>';
+	
+	}
+echo'</tr>';
+echo'</table>';		
 }
 function liste_amis($bdd){
 	$amigos=array();
