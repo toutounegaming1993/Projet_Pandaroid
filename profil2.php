@@ -51,7 +51,7 @@
     <body>
 		<div id="fond">
 			<div id="contenu">
-			<form id = "uploadform"  class="hidden" action="upload_photo.php" method="post" enctype="multipart/form-data" runat="server" >
+			<form id = "uploadform" action="upload_photo.php" method="post" enctype="multipart/form-data" runat="server" >
 					<img id="sortir" src="Image/croix.png" alt="fermer" onClick="annuler2()"/>
 					<div id="ajout">
 					Ajouter votre photo

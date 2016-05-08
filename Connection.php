@@ -150,11 +150,11 @@ if (isset($_POST['valider2']) AND $_POST['valider2'] == 'Valider') {
 				
 				<form id = "form" action="Connection.php" method="post">
 							
-					<input type="text" name="email"  placeholder="Addresse e-mail"><br><br>
+					<input type="text" name="email"  placeholder="Adresse e-mail"><br><br>
 					<input type="password" name="mdp" placeholder="Mot de passe"><br><br>
-					<input id="connexion" type="submit" name= "valider" value="Se Connecter" >
+					<input id="connexion" type="submit" name= "valider" value="Se Connecter" ><br>
 					
-					<label class = "erreur" ><?php if (isset($erreur)) echo '<br />',$erreur;?></label>
+					<label class = "erreur" id="erreur" ><?php if (isset($erreur)) echo '<br />',$erreur;?></label>
 				</form>
 				
 				<p>
@@ -185,7 +185,7 @@ if (isset($_POST['valider2']) AND $_POST['valider2'] == 'Valider') {
 					<input type="password" name="mdp2" placeholder="Confirmer mot de passe"><br><br>
 					<input id="submit" type="submit" name= "valider2" value="Valider" >
 					
-					<label class = "erreur" ><?php if (isset($erreur2)) echo '<br />',$erreur;?></label>
+					<label class = "erreur" ><?php if (isset($erreur2)) echo '<br /><br />',$erreur;?></label>
 					
 				</form>
 			</div>

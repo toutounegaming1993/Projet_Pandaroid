@@ -185,3 +185,9 @@
 #sortir:hover{
 	height: 20px;
 }
+
+#erreur{
+	font-family: Raleway, sans-serif;
+	color: red;
+	font-size: 14px;
+}

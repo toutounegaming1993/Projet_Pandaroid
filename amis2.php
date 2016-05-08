@@ -23,7 +23,7 @@
 			$prenom = strtoupper($_SESSION['prenom']);
 			echo $prenom; 
 			?></a></li>
-			<li id="links"><a href="amis2.php" onClick="photo()">PARTAGER UNE PHOTO</a></li>
+			<li id="links"><a href="amis.php" onClick="photo()">PARTAGER UNE PHOTO</a></li>
 			<li id="links"><a href="diapo.php">ALBUMS</a></li>
 			<li id="links"><a href="amis.php">AMIS</a></li>
 			<li id="links"><a href="#5">PARAMETRES</a></li>
@@ -49,7 +49,7 @@
     <body>
 		<div id="fond">
 			<div id="contenu">
-			<form id = "uploadform" class="hidden" action="upload_photo.php" method="post" enctype="multipart/form-data" runat="server" >
+			<form id = "uploadform" action="upload_photo.php" method="post" enctype="multipart/form-data" runat="server" >
 					<img id="sortir" src="Image/croix.png" alt="fermer" onClick="annuler3()"/>
 					<div id="ajout">
 					Ajouter votre photo
